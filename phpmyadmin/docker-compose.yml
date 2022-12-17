@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 5555:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - ever-book-service
+
+networks:
+  ever-book-service:
+    external: true
