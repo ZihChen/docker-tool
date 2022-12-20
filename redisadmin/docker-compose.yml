@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  redisadmin:
+    image: phpredisadmin/phpredisadmin
+    container_name: redis-admin
+    restart: always
+    ports:
+      - 5556:80
+    volumes:
+      - ./config.inc.php:/src/app/includes/config.inc.php
+    networks:
+      - web_service
+
+networks:
+  web_service:
+    external: true
